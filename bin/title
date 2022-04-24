@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# The invocation `title str`
+# changes the title of the terminal into `str`.
+# Note that the new title may immediately get overwritten
+# by `PROMPT_COMMAND` if it is set appropriately.
+
+title='\e]0;' && \
+endtitle='\a' && \
+printf "$title%s$endtitle" "$*"

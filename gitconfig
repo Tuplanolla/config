@@ -1,0 +1,101 @@
+[user]
+  name = Sampsa Kiiskinen
+  email = tuplanolla@gmail.com
+[push]
+  default = simple
+[core]
+  editor = vim
+  pager = less
+# The following files contain color definitions.
+#
+# * `add-interactive.c´
+# * `advice.c´
+# * `builtin/blame.c´
+# * `builtin/branch.c´
+# * `builtin/clean.c´
+# * `builtin/commit.c´
+# * `builtin/config.c´
+# * `builtin/log.c´
+# * `builtin/push.c´
+# * `builtin/show-branch.c´
+# * `diff.c´
+# * `graph.c´
+# * `grep.c´
+# * `grep.h´
+# * `log-tree.c´
+# * `pretty.c´
+# * `ref-filter.c´
+# * `sequencer.c´
+# * `sideband.c´
+# * `transport.c´
+# * `wt-status.c´
+#
+# These are from `git/builtin/branch.c`.
+[color "branch"]
+  plain = normal normal bold
+  remote = red normal bold
+  local = normal normal bold
+  current = green normal bold
+  upstream = blue normal bold
+  worktree = cyan normal bold
+# These are from `git/log-tree.c`.
+[color "decorate"]
+  branch = green normal bold
+  remoteBranch = red normal bold
+  tag = yellow normal bold
+  stash = magenta normal bold
+  HEAD = cyan normal bold
+  grafted = blue normal bold
+# These are from `git/diff.c`.
+[color "diff"]
+  context = normal normal bold
+  meta = normal normal bold
+  frag = cyan normal bold
+  old = red normal bold
+  new = green normal bold
+  commit = yellow normal bold
+  whitespace = normal red bold
+  func = normal normal bold
+  oldMoved = magenta normal bold
+  oldMovedAlternative = blue normal bold
+  oldMovedDimmed = normal normal
+  oldMovedAlternativeDimmed = italic normal
+  newMoved = cyan normal bold
+  newMovedAlternative = yellow normal bold
+  newMovedDimmed = normal normal
+  newMovedAlternativeDimmed = italic normal
+  contextDimmed = normal normal
+  oldDimmed = red normal
+  newDimmed = green normal
+  contextBold = normal normal bold
+  oldBold = red normal bold
+  newBold = green normal bold
+# These are from `git/grep.c` and `git/grep.h`.
+[color "grep"]
+  context = normal normal bold
+  filename = magenta normal bold
+  function = normal normal bold
+  linenumber = green normal bold
+  column = green normal bold
+  matchContext = red normal bold
+  matchSelected = red normal bold
+  selected = normal normal bold
+  separator = cyan normal bold
+# These are from `git/add-interactive.c` and `git/builtin/clean.c`.
+[color "interactive"]
+  error = red normal bold
+  header = normal normal bold
+  help = red normal bold
+  plain = normal normal bold
+  prompt = blue normal bold
+# These are from `git/builtin/commit.c` and `git/wt-status.c`.
+[color "status"]
+  header = normal normal bold
+  updated = green normal bold
+  changed = red normal bold
+  untracked = red normal bold
+  noBranch = red normal bold
+  unmerged = red normal bold
+  localBranch = green normal bold
+  remoteBranch = red normal bold
+  branch = normal normal bold

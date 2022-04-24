@@ -1,0 +1,16 @@
+#! /bin/bash
+
+# The invocation `terminate proc0 proc1 proc2`
+# sends `SIGTERM` to the processes
+# with the names `proc0`, `proc1`, `proc2` and so on and
+# waits for them to terminate.
+
+if test "$#" -eq 0 ; \
+then exit 0 ; \
+else dir="$1" && \
+pids="$(pidof "$@")" && \
+kill -s TERM $pids && \
+while kill -s 0 $pids 2> '/dev/null' ; \
+do sleep 1 ; \
+done ; \
+fi

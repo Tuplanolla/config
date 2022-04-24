@@ -1,0 +1,17 @@
+#! /bin/bash
+
+# The invocation `inside dir com`
+# runs the command `com` with the current directory set to `dir`.
+
+if test "$#" -lt 1 ; \
+then echo 'Invalid argument' >&2 && \
+exit 1 ; \
+else dir="$1" && \
+shift && \
+cd "$dir" && \
+{ "$@" ; \
+  status="$?" ; \
+  cd - > '/dev/null' ; \
+  exit "$status" ; \
+} ; \
+fi

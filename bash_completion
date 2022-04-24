@@ -1,0 +1,5 @@
+complete -A directory -A command inside
+complete now
+complete -A command run
+complete -A command terminate
+complete title

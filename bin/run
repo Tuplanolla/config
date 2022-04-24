@@ -1,0 +1,6 @@
+#! /bin/bash
+
+# The invocation `run com`
+# runs the command `com` without a controlling terminal.
+
+( "$@" < '/dev/null' > '/dev/null' 2> '/dev/null' & ) &

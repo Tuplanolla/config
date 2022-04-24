@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# The invocation `now`
+# prints the current time in ISO 8601 format.
+
+datefmt='%Y-%m-%d %H:%M:%S' && \
+date +"$datefmt"
