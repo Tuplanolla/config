@@ -23,14 +23,14 @@ configuration files for various programs.
       #! /bin/sh
 
       ed ~/.bash_aliases <<'EOF'
-      $a
+      0i
       . "$HOME/files/software/config/bash_aliases"
       .
       w
       EOF
 
       ed ~/.bash_completion <<'EOF'
-      $a
+      0i
       . ~/files/software/config/bash_completion
       .
       w

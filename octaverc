@@ -1,3 +1,4 @@
 suppress_verbose_help_message (true ());
+format ('long');
 graphics_toolkit ('gnuplot');
 setenv ('GNUTERM', 'dumb ansi');

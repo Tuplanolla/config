@@ -290,28 +290,28 @@ function! ClevererTab(shift)
     endif
   else
     if a:shift
-      return "\<Tab>"
+      return "\<BS>"
     else
-      return "\<S-Tab>"
+      return "\<Tab>"
     endif
   endif
 endfunction
 
-noremap <silent> ä \
-noremap <silent> ö :
+noremap ä \
+noremap ö :
 
 inoremap <silent> <Tab> <C-R>=ClevererTab(0)<CR>
 inoremap <silent> <S-Tab> <C-R>=ClevererTab(1)<CR>
 
-nnoremap <F1> :help!<CR>
+nnoremap <silent> <F1> :help!<CR>
 nnoremap <silent> <F2> :bprevious<CR>
 nnoremap <silent> <F3> :bnext<CR>
 nnoremap <silent> <F4> :buffer #<CR>
-nnoremap <F5> :redraw!<CR>
+nnoremap <silent> <F5> :redraw!<CR>
 " nnoremap <F6>
 " nnoremap <F7>
 nnoremap <silent> <F8> :%s/\\s\\+$//<CR>
-nnoremap <F9> :make!<CR>
+nnoremap <silent> <F9> :make!<CR>
 " nnoremap <F10>
 " nnoremap <F11>
 " nnoremap <F12>
