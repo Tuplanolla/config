@@ -11,6 +11,15 @@ endtitle='\a'
 datefmt='%Y-%m-%d %H:%M:%S'
 
 reset='\e[0m'
+dim_gray='\e[30m'
+dim_red='\e[31m'
+dim_yellow='\e[33m'
+dim_green='\e[32m'
+dim_cyan='\e[36m'
+dim_blue='\e[34m'
+dim_magenta='\e[35m'
+dim_white='\e[37m'
+gray='\e[90m'
 red='\e[91m'
 yellow='\e[93m'
 green='\e[92m'
@@ -18,6 +27,9 @@ cyan='\e[96m'
 blue='\e[94m'
 magenta='\e[95m'
 white='\e[97m'
+yellow_on_dim_blue='\e[93;44m'
+white_on_dim_red='\e[97;41m'
+white_on_dim_yellow='\e[97;43m'
 
 # While this `PROMPT_COMMAND` perfectly matches the `PS1`,
 # its date and time fields are quite excessive,
@@ -33,11 +45,15 @@ PROMPT_COMMAND="printf '$title%s@%s %s %s %s$endtitle' \
 \"\$(basename \"\$SHELL\")\" \
 \"\$(jobs -p | grep '^[[:digit:]]\+$' | wc -l)\""
 
-PS1="$(printf '[%s %s@%s %s %s %s]%s%s\n\$ ' \
+PS1="$(printf '[%s %s@%s %s %s %s]%s%s%s\n\$ ' \
 "\[$red\]\D{$datefmt}\[$reset\]" \
 "\[$yellow\]\u\[$reset\]" "\[$green\]\H\[$reset\]" "\[$cyan\]\w\[$reset\]" \
 "\[$blue\]\s\[$reset\]" "\[$magenta\]\j\[$reset\]" \
-"\$(\"\$(command -v __git_ps1)\")" \
-"\$(test -n \"\$CONDA_DEFAULT_ENV\" && printf \" (\$CONDA_DEFAULT_ENV)\")")"
+"\$(test -n \"\$CONDA_DEFAULT_ENV\" && printf \"\$CONDA_DEFAULT_ENV\" | \
+sed 's/^.\\+$/ (\[$yellow_on_dim_blue\]conda\[$reset\] &)/')" \
+"\$(\$(command -v __git_ps1) | grep -o '[^ ()]\\+' | \
+sed 's/^.\\+$/ (\[$white_on_dim_red\]git\[$reset\] &)/')" \
+"\$(opam switch show | \
+sed 's/^.\\+$/ (\[$white_on_dim_yellow\]opam\[$reset\] &)/')")"
 
 PS2='> '
