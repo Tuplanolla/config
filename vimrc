@@ -110,6 +110,8 @@ augroup vimrc_matchpairs
   autocmd!
   autocmd FileType c setlocal
   \ matchpairs=(:),[:],{:}
+  autocmd FileType coq setlocal
+  \ matchpairs=(:),[:],{:}
 augroup END
 set matchpairs=(:),<:>,[:],{:} " local to buffer
 set maxcombine=6
@@ -150,7 +152,7 @@ set report=0
 set ruler
 set scrolljump=1
 set scrolloff=1
-set selection=old
+set selection=inclusive
 set selectmode=
 set shiftround
 augroup vimrc_shiftwidth
@@ -181,7 +183,7 @@ try | set termwinscroll=4096 | catch | endtry " local to buffer
 set notildeop
 set timeout
 set ttimeout
-set timeoutlen=1000
+set timeoutlen=10000
 set ttimeoutlen=100
 set undodir=~/.vim/undo//,~/tmp//,/var/tmp//,/tmp//
 set noundofile " local to buffer
