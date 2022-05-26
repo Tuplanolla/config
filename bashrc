@@ -49,11 +49,16 @@ PS1="$(printf '[%s %s@%s %s %s %s]%s%s%s\n\$ ' \
 "\[$red\]\D{$datefmt}\[$reset\]" \
 "\[$yellow\]\u\[$reset\]" "\[$green\]\H\[$reset\]" "\[$cyan\]\w\[$reset\]" \
 "\[$blue\]\s\[$reset\]" "\[$magenta\]\j\[$reset\]" \
-"\$(test -n \"\$CONDA_DEFAULT_ENV\" && printf \"\$CONDA_DEFAULT_ENV\" | \
-sed 's/^.\\+$/ (\[$yellow_on_dim_blue\]conda\[$reset\] &)/')" \
-"\$(\$(command -v __git_ps1) | grep -o '[^ ()]\\+' | \
-sed 's/^.\\+$/ (\[$white_on_dim_red\]git\[$reset\] &)/')" \
-"\$(opam switch show | \
-sed 's/^.\\+$/ (\[$white_on_dim_yellow\]opam\[$reset\] &)/')")"
+"\$(if test -n \"\$CONDA_DEFAULT_ENV\" ; \
+then printf \"\$CONDA_DEFAULT_ENV\" ; \
+fi | sed 's/^.\\+$/ (\[$yellow_on_dim_blue\]conda\[$reset\] &)/')" \
+"\$(if command -v __git_ps1 > '/dev/null' ; \
+then __git_ps1 | grep -o '[^ ()]\\+' ; \
+elif command -v git > '/dev/null' ; \
+then git branch --show-current ; \
+fi | sed 's/^.\\+$/ (\[$white_on_dim_red\]git\[$reset\] &)/')" \
+"\$(if command -v opam > '/dev/null' ; \
+then opam switch show ; \
+fi | sed 's/^.\\+$/ (\[$white_on_dim_yellow\]opam\[$reset\] &)/')")"
 
 PS2='> '
