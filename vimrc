@@ -83,6 +83,10 @@ set eadirection=both
 set encoding=utf-8
 set noequalalways
 set expandtab " local to buffer
+augroup vimrc_filetype
+  autocmd!
+  autocmd BufNewFile,BufRead *.scad setfiletype c
+augroup END
 set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\ "
 try | set fixendofline | catch | endtry " local to buffer
 " set foldclose=all
@@ -123,10 +127,10 @@ set mousemodel=popup
 augroup vimrc_nrformats
   autocmd!
   autocmd FileType c
-  \ setlocal nrformats=alpha,octal,hex,bin
+  \ setlocal nrformats=octal,hex,bin
   autocmd FileType haskell
-  \ try | setlocal nrformats=alpha,hex,bin,unsigned |
-  \ catch | setlocal nrformats=alpha,hex,bin |
+  \ try | setlocal nrformats=hex,bin,unsigned |
+  \ catch | setlocal nrformats=hex,bin |
   \ endtry
 augroup END
 try | set nrformats=unsigned |
