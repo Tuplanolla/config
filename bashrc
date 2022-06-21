@@ -34,18 +34,18 @@ white_on_dim_yellow='\e[97;43m'
 # While this `PROMPT_COMMAND` perfectly matches the `PS1`,
 # its date and time fields are quite excessive,
 # which is why we define another version that leaves them out.
-PROMPT_COMMAND="printf '$title%s %s@%s %s %s %s$endtitle' \
+DEFAULT_PROMPT_COMMAND="printf '$title%s %s@%s %s %s %s$endtitle' \
 \"\$(date +'$datefmt')\" \
 \"\$USER\" \"\$HOSTNAME\" \"\$PWD\" \
 \"\$(basename \"\$SHELL\")\" \
 \"\$(jobs -p | grep '^[[:digit:]]\+$' | wc -l)\""
 
-PROMPT_COMMAND="printf '$title%s@%s %s %s %s$endtitle' \
+DEFAULT_PROMPT_COMMAND="printf '$title%s@%s %s %s %s$endtitle' \
 \"\$USER\" \"\$HOSTNAME\" \"\$PWD\" \
 \"\$(basename \"\$SHELL\")\" \
 \"\$(jobs -p | grep '^[[:digit:]]\+$' | wc -l)\""
 
-PS1="$(printf '[%s %s@%s %s %s %s]%s%s%s\n\$ ' \
+DEFAULT_PS1="$(printf '[%s %s@%s %s %s %s]%s%s%s\n\$ ' \
 "\[$red\]\D{$datefmt}\[$reset\]" \
 "\[$yellow\]\u\[$reset\]" "\[$green\]\H\[$reset\]" "\[$cyan\]\w\[$reset\]" \
 "\[$blue\]\s\[$reset\]" "\[$magenta\]\j\[$reset\]" \
@@ -61,4 +61,8 @@ fi | sed 's/^.\\+$/ (\[$white_on_dim_red\]git\[$reset\] &)/')" \
 then opam switch show ; \
 fi | sed 's/^.\\+$/ (\[$white_on_dim_yellow\]opam\[$reset\] &)/')")"
 
-PS2='> '
+DEFAULT_PS2='> '
+
+PROMPT_COMMAND="$DEFAULT_PROMPT_COMMAND"
+PS1="$DEFAULT_PS1"
+PS2="$DEFAULT_PS2"
