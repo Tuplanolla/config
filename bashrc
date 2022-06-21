@@ -58,7 +58,7 @@ elif command -v git > '/dev/null' ; \
 then git branch --show-current 2> '/dev/null' ; \
 fi | sed 's/^.\\+$/ (\[$white_on_dim_red\]git\[$reset\] &)/')" \
 "\$(if command -v opam > '/dev/null' ; \
-then opam switch show ; \
+then opam switch show 2> '/dev/null' ; \
 fi | sed 's/^.\\+$/ (\[$white_on_dim_yellow\]opam\[$reset\] &)/')")"
 
 DEFAULT_PS2='> '
