@@ -33,9 +33,9 @@ augroup vimrc_cindent
   \ comments=nsr:{-,m:\ ,e:-},nb:--
 augroup END
 if has('unnamedplus')
-  set clipboard=unnamedplus,autoselect
+  set clipboard=unnamedplus
 else
-  set clipboard=autoselect
+  set clipboard=
 endif
 set cmdheight=1
 set cmdwinheight=5
