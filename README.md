@@ -252,6 +252,19 @@ configuration files for various programs.
       git config --list
       ```
 
+### Xfce Terminal
+
+* Programs:
+    * `xfce4-terminal`
+* Files:
+    * `~/.config/xfce4/terminal/terminalrc`
+* Installation:
+    * ```
+      #! /bin/sh
+
+      cp -f ~/files/software/config/terminalrc ~/.config/xfce4/terminal/terminalrc
+      ```
+
 ### Redshift
 
 * Programs:

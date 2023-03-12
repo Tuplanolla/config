@@ -208,50 +208,6 @@ set nowrapscan
 set write
 set nowriteany
 
-"" These mappings are needed to support control keys
-"" with `set-window-option -g xterm-keys on` in `.tmux.conf`.
-"" The key codes were discovered by hitting `C-v`
-"" inside `vim` inside `tmux`.
-if !empty($TMUX)
-  imap <silent> <Esc>[1;5A <C-Up>
-  imap <silent> <Esc>[1;5B <C-Down>
-  imap <silent> <Esc>[1;5C <C-Right>
-  imap <silent> <Esc>[1;5D <C-Left>
-  imap <silent> <Esc>[1;5F <C-End>
-  imap <silent> <Esc>[1;5H <C-Home>
-  imap <silent> <Esc>[5;5~ <C-PageUp>
-  imap <silent> <Esc>[6;5~ <C-PageDown>
-  nmap <silent> <Esc>[1;5A <C-Up>
-  nmap <silent> <Esc>[1;5B <C-Down>
-  nmap <silent> <Esc>[1;5C <C-Right>
-  nmap <silent> <Esc>[1;5D <C-Left>
-  nmap <silent> <Esc>[1;5F <C-End>
-  nmap <silent> <Esc>[1;5H <C-Home>
-  nmap <silent> <Esc>[5;5~ <C-PageUp>
-  nmap <silent> <Esc>[6;5~ <C-PageDown>
-endif
-
-"" These mappings are needed to support numeric keypad keys
-"" with Terminal / Features / Disable application keypad mode in PuTTY.
-if !empty($PUTTY)
-  imap <silent> <Esc>OM <Enter>
-  imap <silent> <Esc>OQ /
-  imap <silent> <Esc>OR *
-  imap <silent> <Esc>OS -
-  imap <silent> <Esc>Ol +
-  imap <silent> <Esc>On .
-  imap <silent> <Esc>Op 0
-  imap <silent> <Esc>Oq 1
-  imap <silent> <Esc>Or 2
-  imap <silent> <Esc>Os 3
-  imap <silent> <Esc>Ot 4
-  imap <silent> <Esc>Ou 5
-  imap <silent> <Esc>Ov 6
-  imap <silent> <Esc>Ow 7
-  imap <silent> <Esc>Ox 8
-  imap <silent> <Esc>Oy 9
-endif
-
 "" Return the string from the beginning of the line
 "" to the position of the cursor,
 "" excluding the character that the cursor is on.
